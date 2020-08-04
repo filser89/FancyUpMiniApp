@@ -1,0 +1,3 @@
+<!--pages/landing/landing.wxml-->
+<text>pages/landing/landing.wxml</text>
+<button bindtap="goToLogin">To login page</button>
