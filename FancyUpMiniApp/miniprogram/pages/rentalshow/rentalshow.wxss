@@ -1,0 +1,55 @@
+/* pages/rentalshow/rentalshow.wxss */
+.card-product {
+  overflow: hidden;
+  min-height: 120px;
+  background: white;
+  display: flex;
+  align-items: center;
+  margin: 20rpx;
+  padding: 16px;
+  justify-content: space-between;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
+  border: 2px solid #1EDD88;
+}
+
+.h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 16px;
+}
+
+.p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin: 16px;
+}
+.container {
+  overflow: hidden;
+  min-height: 120px;
+  align-items: center;
+  padding: 8px 10px;
+  justify-content: space-between;
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  border-radius: 4px;
+  margin: 8px;
+  border: 2px solid #1EDD88;
+}
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+button {
+  margin: 8px;
+  font-size: 15px;
+}
+
+image {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
