@@ -3,8 +3,8 @@
     "pages/landing/landing",
     "pages/login/login",
     "pages/index/index",
-    "pages/rentals/rentals", 
-    "pages/rentalshow/rentalshow", 
+    "pages/rentals/rentals",
+    "pages/rentalshow/rentalshow",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -16,7 +16,8 @@
     "pages/openapi/callback/callback",
     "pages/openapi/cloudid/cloudid",
     "pages/im/im",
-    "pages/im/room/room"
+    "pages/im/room/room",
+    "pages/rentalnew/rentalnew"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
