@@ -14,6 +14,7 @@
         <view class="p">color: {{rental.color}}</view> 
         <view class="p">user_id: {{rental.user_id}}</view>    
         <image src="{{rental.image}}"/>
+        <button data-id="{{rental.id}}" bindtap="deleteRental">Delete</button>
       </view>
     </view>
   </view>
