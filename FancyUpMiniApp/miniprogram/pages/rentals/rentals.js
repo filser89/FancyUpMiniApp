@@ -38,16 +38,6 @@ Page({
   goToShow: function (e) {
     let id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: `/pages/show/show?id=${id}`,
-    })
-  },  goToShow: function (e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
-      url: `/pages/show/show?id=${id}`,
-    })
-  },  goToShow: function (e) {
-    let id = e.currentTarget.dataset.id
-    wx.navigateTo({
       url: `/pages/rentalshow/rentalshow?id=${id}`,
     })
   },
@@ -57,6 +47,20 @@ Page({
   onHide: function () {
 
   },
+  deleteRental: function(e) {
+    let id = e.currentTarget.dataset.id
+    wx.request({
+      url:`http://localhost:3000/api/v1/rentals/${id}`,
+      method: 'DELETE',
+      success: (res) => {
+        console.log(res),
+        wx.reLaunch({
+          url: '/pages/rentals/rentals',
+        })
+      }
+    });
+  },
+  
 
   /**
    * Lifecycle function--Called when page unload
