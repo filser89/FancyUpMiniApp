@@ -1,25 +1,23 @@
 <!--pages/rentals/rentals.wxml-->
-<view wx:if="{{rentals}}">
-<view class="message"> Rentals 😆</view> 
+<view class="message b-grey-dark row-center"> All My Rentals 😆</view> 
   <view wx:key="index" wx:for="{{rentals}}" wx:for-item="rental">
-    <view data-id="{{rental.id}}" bindtap="goToShow" class="card-product">
-      <!-- <image src="{{rental.link}}"/> -->
-        <view class="card-product-infos">
-        <view class="h2">name: {{rental.name}}</view>
+    <view data-id="{{rental.id}}" bindtap="goToShow" class="card-product b-grey-dark">
+    <view>
+    <image class="mr50" src="{{rental.image}}"/>
+    </view>
+      <view class="card-product-info">
+        <view class="h2 mt60">{{rental.name}}</view>
         <view class="p">category: {{rental.category}}</view>
         <view class="p">occasion: {{rental.occasion}}</view>
         <view class="p">size: {{rental.size}}</view>   
-        <view class="p">available: {{rental.available}}</view>   
-        <view class="p">rented: {{rental.rented}}</view>  
+        <!-- <view class="p">available: {{rental.available}}</view>    -->
+        <view class="p"> rented: {{rental.rented}}</view>  
         <view class="p">color: {{rental.color}}</view> 
-        <view class="p">user_id: {{rental.user_id}}</view>    
-        <image src="{{rental.image}}"/>
+        <!-- <view class="p">user_id: {{rental.user_id}}</view>     -->
+        <button data-id="{{rental.id}}" bindtap="deleteRental">Delete</button>
       </view>
     </view>
+    </view>
+  <view class="btn-area">
+    <button bindtap="goToForm">Add a rental</button>
   </view>
-
-<view class="btn-area">
-  <button bindtap="goToForm">Add a rental</button>
-</view>
-</view>
-<view wx:else> Your page is not loaded yet </view>

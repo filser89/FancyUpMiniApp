@@ -27,7 +27,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
@@ -70,6 +70,12 @@
 					"name": "pages/rentals/rentals",
 					"pathName": "pages/rentals/rentals",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/rentalshow/rentalshow",
+					"pathName": "pages/rentalshow/rentalshow",
 					"scene": null
 				}
 			]
