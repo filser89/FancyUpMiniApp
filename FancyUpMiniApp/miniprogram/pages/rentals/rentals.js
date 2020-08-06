@@ -28,7 +28,7 @@ Page({
   onShow: function () {
       const page = this
       wx.request({
-        url: 'http://localhost:3000/api/v1/rentals',
+        url: 'http://fancyup.herokuapp.com/api/v1/rentals',
         success: (res) => {
           // console.log(res)
           page.setData(res.data)
@@ -50,7 +50,7 @@ Page({
   deleteRental: function(e) {
     let id = e.currentTarget.dataset.id
     wx.request({
-      url:`http://localhost:3000/api/v1/rentals/${id}`,
+      url:`http://fancyup.herokuapp.com/api/v1/rentals/${id}`,
       method: 'DELETE',
       success: (res) => {
         console.log(res),

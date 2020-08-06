@@ -1,5 +1,5 @@
 <!--pages/rentals/rentals.wxml-->
-<view class="message b-grey-dark row-center"> All My Rentals 😆</view> 
+<view class="h2 bold message b-grey-dark row-center"> All My Rentals 😆</view> 
   <view wx:key="index" wx:for="{{rentals}}" wx:for-item="rental">
     <view data-id="{{rental.id}}" bindtap="goToShow" class="card-product b-grey-dark">
     <view>
@@ -14,10 +14,10 @@
         <view class="p"> rented: {{rental.rented}}</view>  
         <view class="p">color: {{rental.color}}</view> 
         <!-- <view class="p">user_id: {{rental.user_id}}</view>     -->
-        <button data-id="{{rental.id}}" bindtap="deleteRental">Delete</button>
+        <button data-id="{{rental.id}}" class="btn-sm" bindtap="deleteRental">Delete</button>
       </view>
     </view>
     </view>
   <view class="btn-area">
-    <button bindtap="goToForm">Add a rental</button>
+    <button class="black btn-transparent" bindtap="goToForm">Add a rental</button>
   </view>

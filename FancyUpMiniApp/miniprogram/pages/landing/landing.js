@@ -29,6 +29,19 @@ Page({
 
   },
 
+  // searchForm: function(e) {
+  //   let page = this;
+  //   wx.request({
+  //     url: `localhost:3000/movies?query=${e.detail.value.query}`,
+  //     method: "get", 
+  //     success: (res) {
+  //       page.setData({
+  //         movies: movies
+  //       })
+  //     }
+  //   })
+  // }
+
   /**
    * Lifecycle function--Called when page hide
    */

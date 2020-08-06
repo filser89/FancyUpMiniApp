@@ -15,7 +15,7 @@ Page({
     const page= this
     const id = options.id
     wx.request({
-    url:`http://localhost:3000/api/v1/rentals/${id}`,
+    url:`http://fancyup.herokuapp.com/api/v1/rentals/${id}`,
     success: (res) => {
       page.setData(res.data)
       }
