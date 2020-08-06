@@ -1,7 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
-    const host = 'http://localhost:3000/'
+    const host = 'http://fancyup.herokuapp.com/api/v1/rentals'
     console.log('beginning login')
     wx.login({
       success: (res) => {

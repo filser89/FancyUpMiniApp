@@ -1,4 +1,4 @@
-// pages/landing/landing.js
+// pages/rentallogin/rentalslogin.js
 Page({
 
   /**
@@ -26,28 +26,8 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
-    const page = this
-    wx.request({
-      url: 'http://fancyup.herokuapp.com/api/v1/rentals',
-      success: (res) => {
-        // console.log(res)
-        page.setData(res.data)
-      },
-    })
-  },
 
-  // searchForm: function(e) {
-  //   let page = this;
-  //   wx.request({
-  //     url: `localhost:3000/movies?query=${e.detail.value.query}`,
-  //     method: "get", 
-  //     success: (res) {
-  //       page.setData({
-  //         movies: movies
-  //       })
-  //     }
-  //   })
-  // }
+  },
 
   /**
    * Lifecycle function--Called when page hide
@@ -82,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  goToLogin: function (){
-    wx.redirectTo({
-      url: '"pages/login/login"'
-    })
   }
 })
