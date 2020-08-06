@@ -63,7 +63,7 @@ Page({
       },
       {
         id: 3,
-        name: 'black'
+        name: 'black tie'
       },
     ],
     occasionIndex: 0,
@@ -119,6 +119,7 @@ Page({
   // },
   bindCategoryChange: function(e) {
     console.log('pickerA selection change is sent, carrying the value ', e.detail.value)
+    console.log(e)
     this.setData({
       categoryIndex: e.detail.value
     })
@@ -136,8 +137,8 @@ Page({
     let size = e.detail.value.size;
     let color = e.detail.value.color;
     let url = e.detail.value.url;
-    let category = e.detail.value.category;
-    let occasion = e.detail.value.ocassion;
+    let category = this.data.categoriesArray[e.detail.value.category].name;
+    let occasion = this.data.occasionsArray[e.detail.value.occasion].name;
     let id = this.data.id;
 
     const rental = {
