@@ -7,8 +7,9 @@ App({
       success: (res) => {
         console.log(res)
         // insert next code here
+  
         wx.request({
-          url: host + 'login',
+          url: host + 'api/v1/users',
           method: 'post',
           data: {
             code: res.code

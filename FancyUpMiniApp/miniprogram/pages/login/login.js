@@ -1,4 +1,5 @@
 // pages/login/login.js
+const app = getApp()
 Page({
 
   /**
@@ -62,5 +63,26 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  getUserInfo: function (e) {
+    const page = this
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo
+    })
+
+    console.log(this.data)
+    wx.request({
+      url: `http://localhost:3000/api/v1/users/${getApp().globalData.userId}`,
+      method: "PUT",
+      data: {user: this.data.userInfo},
+      success(res){
+        console.log(res)
+        
+      }
+
+    })
   }
+
 })
