@@ -132,7 +132,6 @@ Page({
   },
   formSubmit: function (e) {
     //...
-    console.log(e)
     let name = e.detail.value.name;
     let size = e.detail.value.size;
     let color = e.detail.value.color;
@@ -151,12 +150,12 @@ Page({
       image: url
       //necessary to have user_id
     }
-    // console.log(rental)
+    console.log(rental)
     const page = this
     if (page.data.id) {
       // update request... PUT request
       wx.request({
-        url: `http://localhost:3000/api/v1/rental/${page.data.id}`,
+        url: `http://fancyup.herokuapp.com/api/v1/rentals/${page.data.id}`,
         method: 'PUT',
         data: rental,
         success: (res) => {
@@ -167,7 +166,7 @@ Page({
       })
     } else {
       wx.request({
-        url: 'http://localhost:3000/api/v1/rentals',
+        url: 'http://fancyup.herokuapp.com/api/v1/rentals',
         method: 'POST',
         data: rental,
         success: (res) => {
@@ -192,7 +191,7 @@ Page({
     console.log(page)
     if (id) {
       wx.request({
-        url: `http://localhost:3000/api/v1/rentals/${id}`,
+        url: `http://fancyup.herokuapp.com/api/v1/rentals/${id}`,
         success: (res) => {
           page.setData(res.data)
         }
