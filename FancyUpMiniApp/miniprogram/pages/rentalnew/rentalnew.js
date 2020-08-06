@@ -148,6 +148,7 @@ Page({
       color: color,
       size: size,
       image: url
+      //necessary to have user_id to post
     }
     // console.log(rental)
     const page = this
