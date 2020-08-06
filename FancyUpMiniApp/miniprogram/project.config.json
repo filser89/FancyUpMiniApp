@@ -83,6 +83,13 @@
 					"id": -1,
 					"name": "pages/rentalnew/rentalnew",
 					"pathName": "pages/rentalnew/rentalnew",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/landing/landing",
+					"pathName": "pages/landing/landing",
 					"scene": null
 				}
 			]
