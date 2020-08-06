@@ -88,5 +88,10 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  goToForm: function() {
+    wx.navigateTo({
+      url: '/pages/rentalnew/rentalnew',
+    })
+  },
 })

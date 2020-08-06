@@ -68,56 +68,55 @@ Page({
     ],
     occasionIndex: 0,
   },
-  chooseImageTap: function () {
-    var that = this;
-    wx.showActionSheet({
-      itemList: ['Choose image from album', 'Take a photo'],
-      itemColor: "#00000",
-      success: function (res) {
-        if (!res.cancel) {
-          if (res.tapIndex == 0) {
-            that.chooseWxImage('album')
-          } else if (res.tapIndex == 1) {
-            that.chooseWxImage('camera')
-          }
-        }
-      }
-    })
-  }, 
-  chooseWxImage: function (type) {
-    var that = this;
-    var imgsPaths = that.data.imgs;
-    wx.chooseImage({
-      sizeType: ['original', 'compressed'],
-      sourceType: [type],
-      success: function (res) {
-        console.log(res.tempFilePaths[0]);
-        that.upImgs(res.tempFilePaths[0], 0) //调用上传方法
-      }
-    }) 
-  },
-  upImgs: function (imgurl, index) {
-    var that = this;
-    wx.uploadFile({
-      url: 'http://localhost:3000/api/v1/rentals',//
-      filePath: imgurl,
-      name: 'file',
-      header: {
-        'content-type': 'multipart/form-data'
-      },
-      formData: null,
-      success: function (res) {
-        console.log(res) //接口返回网络路径
-        var data = JSON.parse(res.data)
-          that.data.picPaths.push(data['msg'])
-          that.setData({
-            picPaths: that.data.picPaths
-          })
-          console.log(that.data.picPaths)
-      }
-    })
-  },
-
+  // chooseImageTap: function () {
+  //   var that = this;
+  //   wx.showActionSheet({
+  //     itemList: ['Choose image from album', 'Take a photo'],
+  //     itemColor: "#00000",
+  //     success: function (res) {
+  //       if (!res.cancel) {
+  //         if (res.tapIndex == 0) {
+  //           that.chooseWxImage('album')
+  //         } else if (res.tapIndex == 1) {
+  //           that.chooseWxImage('camera')
+  //         }
+  //       }
+  //     }
+  //   })
+  // }, 
+  // chooseWxImage: function (type) {
+  //   var that = this;
+  //   var imgsPaths = that.data.imgs;
+  //   wx.chooseImage({
+  //     sizeType: ['original', 'compressed'],
+  //     sourceType: [type],
+  //     success: function (res) {
+  //       console.log(res.tempFilePaths[0]);
+  //       that.upImgs(res.tempFilePaths[0], 0) //调用上传方法
+  //     }
+  //   }) 
+  // },
+  // upImgs: function (imgurl, index) {
+  //   var that = this;
+  //   wx.uploadFile({
+  //     url: 'http://localhost:3000/api/v1/rentals',//
+  //     filePath: imgurl,
+  //     name: 'file',
+  //     header: {
+  //       'content-type': 'multipart/form-data'
+  //     },
+  //     formData: null,
+  //     success: function (res) {
+  //       console.log(res) //接口返回网络路径
+  //       var data = JSON.parse(res.data)
+  //         that.data.picPaths.push(data['msg'])
+  //         that.setData({
+  //           picPaths: that.data.picPaths
+  //         })
+  //         console.log(that.data.picPaths)
+  //     }
+  //   })
+  // },
   bindCategoryChange: function(e) {
     console.log('pickerA selection change is sent, carrying the value ', e.detail.value)
     this.setData({
@@ -130,9 +129,53 @@ Page({
       occasionIndex: e.detail.value
     })
   },
+  formSubmit: function (e) {
+    //...
+    console.log(e)
+    let name = e.detail.value.name;
+    let size = e.detail.value.size;
+    let color = e.detail.value.color;
+    let url = e.detail.value.url;
+    let category = e.detail.value.category;
+    let occasion = e.detail.value.ocassion;
+    let id = this.data.id;
 
-  formSubmit: function(e) {
-    console.log('form triggers a submit event, carrying the following data: ', e.detail.value)
+    const rental = {
+      name: name,
+      category: category,
+      occasion: occasion,
+      size: size,
+      color: color,
+      size: size,
+      image: url
+    }
+    // console.log(rental)
+    const page = this
+    if (page.data.id) {
+      // update request... PUT request
+      wx.request({
+        url: `http://localhost:3000/api/v1/rental/${page.data.id}`,
+        method: 'PUT',
+        data: rental,
+        success: (res) => {
+          wx.redirectTo({
+            url: `/pages/rentalshow/rentalshow?id=${res.data.id}`,
+          })
+        }
+      })
+    } else {
+      wx.request({
+        url: 'http://localhost:3000/api/v1/rentals',
+        method: 'POST',
+        data: rental,
+        success: (res) => {
+          console.log(res)
+          wx.reLaunch({
+            url: '/pages/rentals/rentals',
+          })
+        }
+      })
+    }
   },
   formReset: function() {
     console.log('form triggers a reset event.')
@@ -142,7 +185,17 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    const page = this
+    const id = options.id
+    console.log(page)
+    if (id) {
+      wx.request({
+        url: `http://localhost:3000/api/v1/rentals/${id}`,
+        success: (res) => {
+          page.setData(res.data)
+        }
+      })
+    } 
   },
 
   /**
