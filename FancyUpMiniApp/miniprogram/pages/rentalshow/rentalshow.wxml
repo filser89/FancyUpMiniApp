@@ -11,5 +11,6 @@
         <view class="p">size: {{size}}</view>      
         <view class="p">rented: {{rented}}</view>  
         <view class="p">color: {{color}}</view>   
+    <button class="black btn-transparent"  bindtap="goToLogin">Click to Order</button>
   </view>
 </view>

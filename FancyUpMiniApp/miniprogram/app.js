@@ -1,7 +1,7 @@
 //app.js
 App({
   onLaunch: function () {
-    const host = 'http://fancyup.herokuapp.com/api/v1/rentals'
+    const host = this.globalData.url
     console.log('beginning login')
     wx.login({
       success: (res) => {
@@ -9,7 +9,7 @@ App({
         // insert next code here
   
         wx.request({
-          url: host + 'api/v1/users',
+          url: host + '/users',
           method: 'post',
           data: {
             code: res.code
@@ -23,5 +23,9 @@ App({
       }
     })
   },
-  globalData: {}
+  globalData: {
+    hasUserInfo: true,
+    url: "http://localhost:3000/api/v1",
+    // url: "http://fancyup.herokuapp.com/api/v1"
+  }
 })
