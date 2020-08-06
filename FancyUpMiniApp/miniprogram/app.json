@@ -5,7 +5,9 @@
     "pages/index/index",
     "pages/rentals/rentals",
     "pages/rentalshow/rentalshow",
-    "pages/rentallogin/rentalslogin",
+    "pages/rentalslogin/rentalslogin",
+    "pages/orderslogin/orderslogin",
+    "pages/orders/orders",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -35,13 +37,13 @@
         "text": "Rent an Outfit"
         },
         {
-        "pagePath": "pages/rentals/rentals",
+        "pagePath": "pages/rentalslogin/rentalslogin",
         "iconPath": "images/tabBar/home.png",
         "selectedIconPath": "images/tabBar/home.png",
         "text": "My Rentals"
         },
         {
-        "pagePath": "pages/rentals/rentals",
+        "pagePath": "pages/orderslogin/orderslogin",
         "iconPath": "images/tabBar/order.png",
         "selectedIconPath": "images/tabBar/order.png",
         "text": "My Orders"
@@ -53,7 +55,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTitleText": "FancyUp MiniApp",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",

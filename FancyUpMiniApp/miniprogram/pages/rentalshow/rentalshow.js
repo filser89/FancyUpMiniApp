@@ -1,4 +1,6 @@
 // pages/rentalshow/rentalshow.js
+const app = getApp()
+
 Page({
 
   /**
@@ -15,7 +17,7 @@ Page({
     const page= this
     const id = options.id
     wx.request({
-    url:`http://fancyup.herokuapp.com/api/v1/rentals/${id}`,
+    url:`http://localhost:3000/api/v1/rentals/${id}`,
     success: (res) => {
       page.setData(res.data)
       }
@@ -69,5 +71,15 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  goToLogin: function() {
+    if (app.globalData.hasUserInfo) {
+      wx.redirectTo({
+        url: '/pages/orders/orders',
+      })
+    } else {
+    wx.redirectTo({
+      url: '/pages/login/login',
+    })
+  }}
 })

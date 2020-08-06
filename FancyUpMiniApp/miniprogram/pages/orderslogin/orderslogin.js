@@ -1,4 +1,4 @@
-// pages/rentallogin/rentalslogin.js
+// pages/orderslogin/orderslogin.js
 Page({
 
   /**

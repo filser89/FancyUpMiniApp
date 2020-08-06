@@ -18,22 +18,15 @@
 .h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 16px;
+  margin: 8px;
   color: black;
 }
 
 .p {
   font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin: 16px;
+  margin: 4px;
   color: black;
 }
 
 
-
-button {
-  margin: 8px;
-  font-size: 15px;
-}
 

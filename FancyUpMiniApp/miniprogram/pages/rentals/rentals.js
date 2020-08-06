@@ -28,7 +28,7 @@ Page({
   onShow: function () {
       const page = this
       wx.request({
-        url: 'http://fancyup.herokuapp.com/api/v1/rentals',
+        url: 'http://localhost:3000/api/v1/rentals',
         success: (res) => {
           // console.log(res)
           page.setData(res.data)
